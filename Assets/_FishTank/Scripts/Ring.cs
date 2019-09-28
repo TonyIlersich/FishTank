@@ -23,7 +23,7 @@ public class Ring : MonoBehaviour
 
 	void Update()
 	{
-		UpdateAngle();
+		if (stepInterval > 0 && stepDuration > 0 && stepsPerRotation > 0) UpdateAngle();
 	}
 
 	// rotates this gameobject periodically according to properties above
