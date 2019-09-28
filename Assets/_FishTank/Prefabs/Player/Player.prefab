@@ -199,7 +199,9 @@ GameObject:
   - component: {fileID: 1032632430667652245}
   - component: {fileID: 1032632430667652244}
   - component: {fileID: 1032632430667652232}
+  - component: {fileID: 4583270332286197376}
   - component: {fileID: 7567536548522364680}
+  - component: {fileID: -8376423851088917450}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -252,6 +254,11 @@ MonoBehaviour:
   m_movementSpeed: 10
   m_accelerationTime: 0.1
   m_turret: {fileID: 1032632428916588454}
+  m_reelForce: 0
+  m_shootForce: 0
+  m_fishShootPosition: {fileID: 0}
+  m_fishSnapDistance: 0
+  m_fishPrefab: {fileID: 0}
   m_rigidbody: {fileID: 0}
 --- !u!54 &1032632430667652244
 Rigidbody:
@@ -282,6 +289,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_wheel: {fileID: 1032632430705447611}
+--- !u!114 &4583270332286197376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032632430667652247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b2366a4ce4539a429721e8ccefd3877, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ringLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &7567536548522364680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,6 +331,21 @@ MonoBehaviour:
     m_repsawnEvent:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &-8376423851088917450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032632430667652247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b2366a4ce4539a429721e8ccefd3877, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ringLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &1032632430705447610
 GameObject:
   m_ObjectHideFlags: 0
