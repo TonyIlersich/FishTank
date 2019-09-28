@@ -50,8 +50,9 @@ public class PlayerRespawn : MonoBehaviour
 
     private IEnumerator RespawnFunction()
     {
-        yield return new WaitForSeconds(m_repsawnTime);
         m_pooler.NewObject(m_respawnParticle, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(m_repsawnTime);
+        
         m_visuals.SetActive(true);
         m_playerController.enabled = true;
         m_rb.isKinematic = false;
