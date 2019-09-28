@@ -30,10 +30,12 @@ public class PlayerController : MonoBehaviour
 	private Vector2 m_lookInput;
 	private bool m_fishIsCast;
 	private Rigidbody m_currentFishObject;
+	private LineRenderer m_fishReel;
 
 	private void Start()
 	{
 		m_rigidbody = GetComponent<Rigidbody>();
+		m_fishReel = GetComponentInChildren<LineRenderer>();
 	}
 
 	private void Update()
@@ -62,7 +64,11 @@ public class PlayerController : MonoBehaviour
 		float theta = Mathf.Atan2(m_lookInput.y, m_lookInput.x);
 		float aimDegrees = theta * Mathf.Rad2Deg;
 		Vector3 pCircle = new Vector3(Mathf.Cos(theta), Mathf.Sin(theta), 0);
-		m_turret.rotation = Quaternion.AngleAxis(-aimDegrees, Vector3.up);
+
+		if (m_lookInput.magnitude != 0f)
+		{
+			m_turret.rotation = Quaternion.AngleAxis(-aimDegrees, Vector3.up);
+		}
 	}
 
 	private void MovePlayer()
@@ -90,6 +96,7 @@ public class PlayerController : MonoBehaviour
 		m_currentFishObject = ObjectPooler.instance.NewObject(m_fishPrefab, m_fishShootPosition.position, Quaternion.identity).GetComponent<Rigidbody>();
 		m_currentFishObject.velocity = Vector3.zero;
 		m_currentFishObject.AddForce(m_fishShootPosition.transform.up * m_shootForce, ForceMode.Impulse);
+
 		m_fishIsCast = true;
 	}
 
@@ -97,18 +104,25 @@ public class PlayerController : MonoBehaviour
 	private void ReelFish()
 	{
 		Vector3 dirToPlayer = transform.position - m_currentFishObject.position;
-		m_currentFishObject.AddForce(dirToPlayer * m_reelForce, ForceMode.Impulse);
+		m_currentFishObject.AddForce(dirToPlayer.normalized * m_reelForce, ForceMode.Impulse);
 	}
 
 	private void CheckFishDistance()
 	{
 		m_recallTimer += Time.deltaTime;
 
+		m_fishReel.SetPosition(0, m_fishShootPosition.position);
+		m_fishReel.SetPosition(1, m_currentFishObject.position);
+
 		if (Vector3.Distance(transform.position, m_currentFishObject.transform.position) < m_fishSnapDistance && m_recallTimer >= m_recallTime)
 		{
 			ObjectPooler.instance.ReturnToPool(m_currentFishObject.gameObject);
-			m_fishIsCast = false;
 			m_recallTimer = 0;
+
+			m_fishReel.SetPosition(0, m_fishShootPosition.position);
+			m_fishReel.SetPosition(1, m_fishShootPosition.position);
+
+			m_fishIsCast = false;
 		}
 	}
 }
