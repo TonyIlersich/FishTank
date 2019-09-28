@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 	public enum PlayerTeam { _0, _1, _2, _3}
+    public PlayerTeam m_playerTeam;
 
 	public float m_movementSpeed;
 	public float m_accelerationTime;
