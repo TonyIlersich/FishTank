@@ -116,13 +116,18 @@ public class PlayerController : MonoBehaviour
 
 		if (Vector3.Distance(transform.position, m_currentFishObject.transform.position) < m_fishSnapDistance && m_recallTimer >= m_recallTime)
 		{
-			ObjectPooler.instance.ReturnToPool(m_currentFishObject.gameObject);
-			m_recallTimer = 0;
-
-			m_fishReel.SetPosition(0, m_fishShootPosition.position);
-			m_fishReel.SetPosition(1, m_fishShootPosition.position);
-
-			m_fishIsCast = false;
+			RecallFish();
 		}
+	}
+
+	public void RecallFish()
+	{
+		ObjectPooler.instance.ReturnToPool(m_currentFishObject.gameObject);
+		m_recallTimer = 0;
+
+		m_fishReel.SetPosition(0, m_fishShootPosition.position);
+		m_fishReel.SetPosition(1, m_fishShootPosition.position);
+
+		m_fishIsCast = false;
 	}
 }
