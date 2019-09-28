@@ -21,7 +21,7 @@ public class RingRespawnManager : MonoBehaviour
         foreach (GameObject ring in m_rings)
         {
             
-            if (ring.transform == currentFish.transform.parent)
+            if (ring.transform == p_player.GetComponent<PlayerFollowRing>().m_currentRing)
             {
                 
                 break;
