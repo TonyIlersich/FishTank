@@ -122,7 +122,12 @@ public class PlayerController : MonoBehaviour
 
 	public void RecallFish()
 	{
-		ObjectPooler.instance.ReturnToPool(m_currentFishObject.gameObject);
+		if (m_currentFishObject != null)
+		{
+			ObjectPooler.instance.ReturnToPool(m_currentFishObject.gameObject);
+		}
+
+		
 		m_recallTimer = 0;
 
 		m_fishReel.SetPosition(0, m_fishShootPosition.position);
