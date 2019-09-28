@@ -10,7 +10,7 @@ public class Centerpiece : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		int team = (int)other.GetComponent<ShotFish>().m_myTeam;
+		int team = (int)other.GetComponentInParent<ShotFish>().m_myTeam;
 		teamsReady[team] = true;
 		transform
 			.GetChild(team)

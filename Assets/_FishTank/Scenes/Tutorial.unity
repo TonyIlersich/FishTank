@@ -513,11 +513,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 98f84aa2f293cc94d8bfc28c78b0f0bd,
-        type: 3}
-      propertyPath: m_Name
-      value: MainFountainCentrePiece
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 98f84aa2f293cc94d8bfc28c78b0f0bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -572,6 +567,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 98f84aa2f293cc94d8bfc28c78b0f0bd,
+        type: 3}
+      propertyPath: m_Name
+      value: MainFountainCentrePiece
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98f84aa2f293cc94d8bfc28c78b0f0bd, type: 3}
@@ -1521,9 +1521,9 @@ MonoBehaviour:
     m_fishSpawnPostion: {fileID: 1961990754}
   - m_playerType: 1
     m_fishSpawnPostion: {fileID: 237013677}
-  - m_playerType: 2
-    m_fishSpawnPostion: {fileID: 1708033243}
   - m_playerType: 3
+    m_fishSpawnPostion: {fileID: 1708033243}
+  - m_playerType: 2
     m_fishSpawnPostion: {fileID: 1933857682}
 --- !u!1 &1453681101
 GameObject:
@@ -1666,9 +1666,9 @@ MonoBehaviour:
     m_fishSpawnPostion: {fileID: 1961990754}
   - m_playerType: 1
     m_fishSpawnPostion: {fileID: 237013677}
-  - m_playerType: 2
-    m_fishSpawnPostion: {fileID: 1708033243}
   - m_playerType: 3
+    m_fishSpawnPostion: {fileID: 1708033243}
+  - m_playerType: 2
     m_fishSpawnPostion: {fileID: 1933857682}
 --- !u!1 &1500102391
 GameObject:
@@ -1831,9 +1831,9 @@ MonoBehaviour:
     m_fishSpawnPostion: {fileID: 1961990754}
   - m_playerType: 1
     m_fishSpawnPostion: {fileID: 237013677}
-  - m_playerType: 2
-    m_fishSpawnPostion: {fileID: 1708033243}
   - m_playerType: 3
+    m_fishSpawnPostion: {fileID: 1708033243}
+  - m_playerType: 2
     m_fishSpawnPostion: {fileID: 1933857682}
 --- !u!1 &1679835254
 GameObject:

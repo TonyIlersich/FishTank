@@ -1912,9 +1912,9 @@ MonoBehaviour:
     m_fishSpawnPostion: {fileID: 1961990754}
   - m_playerType: 1
     m_fishSpawnPostion: {fileID: 237013677}
-  - m_playerType: 2
-    m_fishSpawnPostion: {fileID: 1708033243}
   - m_playerType: 3
+    m_fishSpawnPostion: {fileID: 1708033243}
+  - m_playerType: 2
     m_fishSpawnPostion: {fileID: 1933857682}
 --- !u!1 &1388170800
 GameObject:
@@ -1985,9 +1985,9 @@ MonoBehaviour:
     m_fishSpawnPostion: {fileID: 1961990754}
   - m_playerType: 1
     m_fishSpawnPostion: {fileID: 237013677}
-  - m_playerType: 2
-    m_fishSpawnPostion: {fileID: 1708033243}
   - m_playerType: 3
+    m_fishSpawnPostion: {fileID: 1708033243}
+  - m_playerType: 2
     m_fishSpawnPostion: {fileID: 1933857682}
 --- !u!1 &1390175117
 GameObject:
@@ -2059,9 +2059,9 @@ MonoBehaviour:
     m_fishSpawnPostion: {fileID: 1961990754}
   - m_playerType: 1
     m_fishSpawnPostion: {fileID: 237013677}
-  - m_playerType: 2
-    m_fishSpawnPostion: {fileID: 1708033243}
   - m_playerType: 3
+    m_fishSpawnPostion: {fileID: 1708033243}
+  - m_playerType: 2
     m_fishSpawnPostion: {fileID: 1933857682}
 --- !u!1 &1453681101
 GameObject:
@@ -2204,9 +2204,9 @@ MonoBehaviour:
     m_fishSpawnPostion: {fileID: 1961990754}
   - m_playerType: 1
     m_fishSpawnPostion: {fileID: 237013677}
-  - m_playerType: 2
-    m_fishSpawnPostion: {fileID: 1708033243}
   - m_playerType: 3
+    m_fishSpawnPostion: {fileID: 1708033243}
+  - m_playerType: 2
     m_fishSpawnPostion: {fileID: 1933857682}
 --- !u!1 &1540336756
 GameObject:
@@ -2276,9 +2276,9 @@ MonoBehaviour:
     m_fishSpawnPostion: {fileID: 1961990754}
   - m_playerType: 1
     m_fishSpawnPostion: {fileID: 237013677}
-  - m_playerType: 2
-    m_fishSpawnPostion: {fileID: 1708033243}
   - m_playerType: 3
+    m_fishSpawnPostion: {fileID: 1708033243}
+  - m_playerType: 2
     m_fishSpawnPostion: {fileID: 1933857682}
 --- !u!1 &1708033242
 GameObject:

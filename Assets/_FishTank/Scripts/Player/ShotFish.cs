@@ -10,7 +10,12 @@ public class ShotFish : MonoBehaviour
     public List<AudioClip> m_flopSounds;
     private AudioSource m_aSource;
 
-    private void OnCollisionEnter(Collision collision)
+	private void Start()
+	{
+		m_aSource = GetComponent<AudioSource>();
+	}
+
+	private void OnCollisionEnter(Collision collision)
     {
         m_aSource.Stop();
         m_aSource.clip = m_flopSounds[Random.Range(0, m_flopSounds.Count)];
