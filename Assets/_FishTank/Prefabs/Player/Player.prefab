@@ -1298,9 +1298,10 @@ MonoBehaviour:
   m_reelForce: 10
   m_shootForce: 50
   m_fishShootPosition: {fileID: 7271597563723543384}
-  m_fishSnapDistance: 2
+  m_fishSnapDistance: 3
   m_fishPrefab: {fileID: 1847768992504379653, guid: 85a3495fef67be84baec4a4cdfad460a,
     type: 3}
+  m_recallTime: 1
   m_rigidbody: {fileID: 0}
 --- !u!114 &9220417514480160840
 MonoBehaviour:
@@ -1360,7 +1361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_deathTag: Death
   m_respawnTime: 3
-  m_respawnParticleStartTime: 0
+  m_respawnParticleStartTime: 1.5
   m_visuals: {fileID: 8584330017599091881}
   m_deathParticle: {fileID: 4298908465240177378, guid: 3bd244b39455cb245ba685eea788196a,
     type: 3}

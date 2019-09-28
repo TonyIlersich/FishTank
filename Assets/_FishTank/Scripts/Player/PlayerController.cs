@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
 
 	public GameObject m_fishPrefab;
 
+	public float m_recallTime;
+	private float m_recallTimer;
+
 	[HideInInspector]
 	public Rigidbody m_rigidbody;
 	private Vector3 m_velocitySmoothing;
@@ -99,10 +102,13 @@ public class PlayerController : MonoBehaviour
 
 	private void CheckFishDistance()
 	{
-		if (Vector3.Distance(transform.position, m_currentFishObject.transform.position) < m_fishSnapDistance)
+		m_recallTimer += Time.deltaTime;
+
+		if (Vector3.Distance(transform.position, m_currentFishObject.transform.position) < m_fishSnapDistance && m_recallTimer >= m_recallTime)
 		{
 			ObjectPooler.instance.ReturnToPool(m_currentFishObject.gameObject);
 			m_fishIsCast = false;
+			m_recallTimer = 0;
 		}
 	}
 }
