@@ -9,8 +9,8 @@ public class OnRespawnEvents : UnityEvent { };
 public class PlayerRespawn : MonoBehaviour
 {
     public string m_deathTag = "Death";
-    public float m_repsawnTime = 3f;
-    private Vector3 m_repsawnPos;
+    public float m_respawnTime = 3f;
+    public float m_respawnParticleStartTime;
     public GameObject m_visuals;
     public GameObject m_deathParticle, m_respawnParticle;
     private ObjectPooler m_pooler;
@@ -18,6 +18,7 @@ public class PlayerRespawn : MonoBehaviour
     private PlayerController m_playerController;
     private Coroutine m_respawnCoroutine;
     private Rigidbody m_rb;
+    private bool m_died;
 
     public RespawnEvents m_events;
     [System.Serializable]
@@ -37,26 +38,45 @@ public class PlayerRespawn : MonoBehaviour
 
     public void Die()
     {
-        m_playerController.enabled = false;
-        m_events.m_diedEvent.Invoke();
-        m_visuals.SetActive(false);
-        m_pooler.NewObject(m_deathParticle, transform.position, Quaternion.identity);
+        if (!m_died)
+        {
 
-        transform.position = m_respawnManager.RespawnFishPosition(m_playerController);
-        m_rb.isKinematic = true;
-        m_respawnCoroutine =  StartCoroutine(RespawnFunction());
+            m_died = true;
+            m_playerController.enabled = false;
+            m_events.m_diedEvent.Invoke();
+            m_visuals.SetActive(false);
+            m_pooler.NewObject(m_deathParticle, transform.position, Quaternion.identity);
 
+            transform.position = m_respawnManager.RespawnFishPosition(m_playerController);
+            m_rb.isKinematic = true;
+            m_respawnCoroutine = StartCoroutine(RespawnFunction());
+            print("died");
+        }
     }
 
     private IEnumerator RespawnFunction()
     {
-        m_pooler.NewObject(m_respawnParticle, transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(m_repsawnTime);
         
+        float currentTimer = 0;
+        bool respawnShowed = false;
+        while (currentTimer < m_respawnTime)
+        {
+            currentTimer += Time.deltaTime;
+            if (!respawnShowed)
+            {
+                if (currentTimer > m_respawnParticleStartTime)
+                {
+                    respawnShowed = true;
+                    m_pooler.NewObject(m_respawnParticle, transform.position, Quaternion.identity);
+                }
+            }
+            yield return null;
+        }
         m_visuals.SetActive(true);
         m_playerController.enabled = true;
         m_rb.isKinematic = false;
         m_events.m_repsawnEvent.Invoke();
+        m_died = false;
     }
 
     private void OnCollisionEnter(Collision collision)

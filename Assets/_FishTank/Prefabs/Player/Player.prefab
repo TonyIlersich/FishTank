@@ -294,8 +294,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a9c1b2b6e450fa46b190ec6630d8afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_deathTag: Death
-  m_repsawnTime: 3
+  m_deathTag: Finish
+  m_respawnTime: 3
+  m_respawnParticleStartTime: 1.5
   m_visuals: {fileID: 1032632428916588449}
   m_deathParticle: {fileID: 4298908465240177378, guid: 3bd244b39455cb245ba685eea788196a,
     type: 3}
