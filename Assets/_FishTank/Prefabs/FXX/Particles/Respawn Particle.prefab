@@ -4822,6 +4822,7 @@ GameObject:
   - component: {fileID: 6546148566840544373}
   - component: {fileID: 6546148566840544372}
   - component: {fileID: 6546148566840544379}
+  - component: {fileID: -6585935379480816988}
   m_Layer: 0
   m_Name: Respawn Particle
   m_TagString: Untagged
@@ -9623,3 +9624,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &-6585935379480816988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6546148566840544378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d68c8b78c11ae2419fb9fb51d55f2c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_destructTime: 0
