@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
+[System.Serializable]
+public class OnPlayerEvent : UnityEvent { }
 public class PlayerController : MonoBehaviour
 {
 	public enum PlayerTeam { _0, _1, _2, _3}
@@ -31,6 +33,14 @@ public class PlayerController : MonoBehaviour
 	private bool m_fishIsCast;
 	private Rigidbody m_currentFishObject;
 	private LineRenderer m_fishReel;
+
+    [Header("Events")]
+    public PlayerEvents m_playerEvents;
+    [System.Serializable]
+    public struct PlayerEvents
+    {
+        public OnPlayerEvent m_shootEvent;
+    }
 
 	private void Start()
 	{
@@ -86,14 +96,18 @@ public class PlayerController : MonoBehaviour
 		}
 		else
 		{
+            m_playerEvents.m_shootEvent.Invoke();
 			ShootFish();
 		}
 	}
 
 	private void ShootFish()
 	{
-
+        
 		m_currentFishObject = ObjectPooler.instance.NewObject(m_fishPrefab, m_fishShootPosition.position, Quaternion.identity).GetComponent<Rigidbody>();
+
+        m_currentFishObject.GetComponent<ShotFish>().m_myTeam = m_playerTeam;
+
 		m_currentFishObject.velocity = Vector3.zero;
 		m_currentFishObject.AddForce(m_fishShootPosition.transform.up * m_shootForce, ForceMode.Impulse);
 

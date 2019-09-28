@@ -12,7 +12,7 @@ public class PlayerRespawn : MonoBehaviour
     public float m_respawnTime = 3f;
     public float m_respawnParticleStartTime;
     public GameObject m_visuals;
-    public GameObject m_deathParticle, m_respawnParticle;
+    public GameObject m_deathParticle, m_respawnParticle, m_fishParticle;
     private ObjectPooler m_pooler;
     private RingRespawnManager m_respawnManager;
     private PlayerController m_playerController;
@@ -46,6 +46,8 @@ public class PlayerRespawn : MonoBehaviour
             m_events.m_diedEvent.Invoke();
             m_visuals.SetActive(false);
             m_pooler.NewObject(m_deathParticle, transform.position, Quaternion.identity);
+            Rigidbody rb = m_pooler.NewObject(m_fishParticle, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            rb.AddForce(new Vector3(Random.Range(-.5f, .5f), Random.Range(0, 1f), Random.Range(-.5f, .5f)) * Random.Range(2f,10f), ForceMode.Impulse);
 
             transform.position = m_respawnManager.RespawnFishPosition(m_playerController);
             m_rb.isKinematic = true;
