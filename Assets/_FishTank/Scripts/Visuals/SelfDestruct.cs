@@ -6,14 +6,19 @@ public class SelfDestruct : MonoBehaviour
 {
     private ParticleSystem m_attachedParticalSystem;
 
-    [HideInInspector]
+    
     public float m_destructTime;
     private float m_destructTimer;
 
     private void Start()
     {
         m_attachedParticalSystem = GetComponent<ParticleSystem>();
-        m_destructTime = m_attachedParticalSystem.main.duration + m_attachedParticalSystem.main.startLifetimeMultiplier;
+        if (m_attachedParticalSystem != null)
+        {
+            m_destructTime = m_attachedParticalSystem.main.duration + m_attachedParticalSystem.main.startLifetimeMultiplier;
+        }
+
+        
     }
 
     private void Update()
