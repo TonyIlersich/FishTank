@@ -22,5 +22,10 @@ public class PlayerInput : MonoBehaviour
 		m_playerController.SetMovementInput(movementInput);
 		Vector2 aimInput = new Vector2(m_playerInputController.GetAxis("AimHorizontal"), m_playerInputController.GetAxis("AimVertical"));
 		m_playerController.SetLookInput(aimInput);
+
+		if (m_playerInputController.GetButtonDown("RightTrigger"))
+		{
+			m_playerController.RightTrigger();
+		}
 	}
 }
