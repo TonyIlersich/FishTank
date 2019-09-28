@@ -14,16 +14,17 @@ public class PlayerFollowRing : MonoBehaviour
     void Update()
     {
 		RaycastHit hitInfo;
-		if (Physics.Raycast(transform.position, Vector3.down, out hitInfo, 10f, ringLayer))
+		if (Physics.SphereCast(transform.position + Vector3.up*2, 1, Vector3.down, out hitInfo, Mathf.Infinity, ringLayer))
 		{
 			// assume the ring is the parent of whatever we are standing on
 			transform.SetParent(hitInfo.transform.parent);
             m_currentRing = transform.parent;
-
         }
 		else
 		{
 			transform.SetParent(null);
+			
 		}
     }
+
 }
