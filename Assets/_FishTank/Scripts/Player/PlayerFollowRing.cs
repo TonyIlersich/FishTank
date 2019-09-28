@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerFollowRing : MonoBehaviour
 {
 	public LayerMask ringLayer;
+    public Transform m_currentRing;
 
     void Start()
     {
@@ -17,7 +18,9 @@ public class PlayerFollowRing : MonoBehaviour
 		{
 			// assume the ring is the parent of whatever we are standing on
 			transform.SetParent(hitInfo.transform.parent);
-		}
+            m_currentRing = transform.parent;
+
+        }
 		else
 		{
 			transform.SetParent(null);
