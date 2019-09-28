@@ -20,8 +20,10 @@ public class RingRespawnManager : MonoBehaviour
         GameObject respawnRing = null;
         foreach (GameObject ring in m_rings)
         {
+            
             if (ring.transform == currentFish.transform.parent)
             {
+                
                 break;
             }
             respawnRing = ring;
@@ -33,6 +35,7 @@ public class RingRespawnManager : MonoBehaviour
         }
         else
         {
+            p_player.transform.parent = respawnRing.transform;
             return respawnRing.GetComponent<RingRespawnPositions>().GetSpawnPosition(p_player);
         }
 

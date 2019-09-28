@@ -8,9 +8,9 @@ public class OnRespawnEvents : UnityEvent { };
 
 public class PlayerRespawn : MonoBehaviour
 {
+    public string m_deathTag = "Death";
     public float m_repsawnTime = 3f;
     private Vector3 m_repsawnPos;
-    //private PlayerController m_playerController;
     public GameObject m_visuals;
     public GameObject m_deathParticle, m_respawnParticle;
     private ObjectPooler m_pooler;
@@ -44,10 +44,11 @@ public class PlayerRespawn : MonoBehaviour
 
         transform.position = m_respawnManager.RespawnFishPosition(m_playerController);
         m_rb.isKinematic = true;
+        m_respawnCoroutine =  StartCoroutine(RespawnFunction());
 
     }
 
-    private IEnumerator RepsawnFunction()
+    private IEnumerator RespawnFunction()
     {
         yield return new WaitForSeconds(m_repsawnTime);
         m_pooler.NewObject(m_respawnParticle, transform.position, Quaternion.identity);
@@ -57,6 +58,13 @@ public class PlayerRespawn : MonoBehaviour
         m_events.m_repsawnEvent.Invoke();
     }
 
-    
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == m_deathTag)
+        {
+            Die();
+        }
+    }
+
 
 }
