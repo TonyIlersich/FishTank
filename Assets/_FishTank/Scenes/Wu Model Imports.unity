@@ -311,6 +311,7 @@ MonoBehaviour:
   rotationDirection: -1
   randomNumber: 0
   randomDirection: 0
+  tempo: 0
   rotateSelf: 0
   rotateAround: 0
   isRing: 0
