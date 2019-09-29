@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotateAroundAxis : MonoBehaviour
 {
-    public float rotationSpeed, rotationDirection, randomNumber, randomDirection, tempo;
+    public float rotationSpeed, rotationDirection, randomNumber, randomDirection, tempo, selfSpeed;
     public bool rotateSelf, rotateAround, isRing, rotateSelfCentre;
     
     public Transform rotationAxis;
@@ -48,7 +48,7 @@ public class RotateAroundAxis : MonoBehaviour
 
     void SelfRotate()
     {
-        transform.Rotate(0, rotationDirection * rotationSpeed * Time.deltaTime, 0);
+        transform.Rotate(0, selfSpeed * rotationDirection * rotationSpeed * Time.deltaTime, 0);
     }
 
     void SelfRotateCentre()
