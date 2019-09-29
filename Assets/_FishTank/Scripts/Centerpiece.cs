@@ -6,23 +6,45 @@ public class Centerpiece : MonoBehaviour
 {
 	public Ring ring;
 
-	private bool[] teamsReady = new bool[4] { false, false, false, false };
+	private readonly bool[] teamsReady = new bool[4] { false, false, false, false };
+	private readonly bool[] teamsInside = new bool[4] { false, false, false, false };
 
 	private void OnTriggerEnter(Collider other)
 	{
-		int team = (int)other.GetComponentInParent<ShotFish>().m_myTeam;
-		teamsReady[team] = true;
-		transform
-			.GetChild(team)
-			.GetComponent<Light>().enabled = true;
-		bool allReady = true;
-		for (int i = 0; i < 4; i++)
+		ShotFish shotFish = other.GetComponentInParent<ShotFish>();
+		PlayerInput playerInput = other.GetComponentInParent<PlayerInput>();
+		if (shotFish)
 		{
-			allReady &= teamsReady[i];
+			int team = (int)shotFish.m_myTeam;
+			teamsReady[team] = true;
+			transform
+				.GetChild(team)
+				.gameObject
+				.SetActive(true);
+			bool allReady = true;
+			for (int i = 0; i < 4; i++)
+			{
+				allReady &= teamsReady[i];
+			}
+			if (allReady)
+			{
+				ring.enabled = true;
+			}
 		}
-		if (allReady)
+		else if (playerInput)
 		{
-			ring.enabled = true;
+			int team = playerInput.m_playerId;
+			teamsInside[team] = true;
+			bool allInside = true;
+			for (int i = 0; i < 4; i++)
+			{
+				allInside &= teamsInside[i];
+			}
+			if (allInside)
+			{
+				print("next level!");
+				// TODO: load real level
+			}
 		}
 	}
 }
