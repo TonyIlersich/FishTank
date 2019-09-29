@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 9220417514480160846, guid: b607151d235b1a34dbda5f6fa29d20ee,
         type: 3}
       propertyPath: m_Name
-      value: BluePlayer
+      value: BluePlayer Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5309419846481977949, guid: b607151d235b1a34dbda5f6fa29d20ee,
         type: 3}
@@ -67,6 +67,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9220417514480160843, guid: b607151d235b1a34dbda5f6fa29d20ee,
+        type: 3}
+      propertyPath: m_fishPrefab
+      value: 
+      objectReference: {fileID: 8549815861891339253, guid: 7246ce48ec582844cab9c68e82bcc53f,
+        type: 3}
     - target: {fileID: 8584330017599091881, guid: b607151d235b1a34dbda5f6fa29d20ee,
         type: 3}
       propertyPath: m_IsActive
