@@ -114,7 +114,6 @@ public class Hill : MonoBehaviour
         {
             player.enabled = false;
         }
-        Debug.Break();
 
         m_gameCompleteEvent.Invoke();
         if (m_winAnim!=null)

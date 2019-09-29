@@ -47,7 +47,7 @@ public class WinAnimation : MonoBehaviour
     private IEnumerator WinAnimationCoroutine()
     {
         float timer = 0;
-        m_winningPlayer.LookAt(m_winningPlayer.transform.position - Vector3.down);
+        m_winningPlayer.LookAt(m_winningPlayer.transform.position - Vector3.forward);
         m_winningPlayer.GetComponent<Animator>().SetBool("Won", true);
         m_gameFinishedEvent.Invoke();
         while (timer < m_lerpTime)
@@ -60,14 +60,7 @@ public class WinAnimation : MonoBehaviour
             mainCamera.transform.eulerAngles = new Vector3(Mathf.Lerp(m_cameraEulerX, m_newEuler, percent),0,0);
             
 
-            if (!m_winningTextShown)
-            {
-                if (timer > m_displayTextTime)
-                {
-                    m_winningTextShown = true;
-                    m_winningText.gameObject.SetActive(true);
-                }
-            }
+
 
             yield return null;
 
