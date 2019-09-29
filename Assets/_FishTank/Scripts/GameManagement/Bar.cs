@@ -5,12 +5,13 @@ using UnityEngine;
 public class Bar : MonoBehaviour
 {
     public Transform m_player;
+    public float m_height = 15.5f;
     private void Awake()
     {
         transform.SetParent(null);
     }
     private void Update()
     {
-        transform.position = new Vector3(m_player.position.x, transform.position.y, m_player.position.z);
+        transform.position = new Vector3(m_player.position.x, m_height, m_player.position.z);
     }
 }
