@@ -91,20 +91,13 @@ public class PlayerController : MonoBehaviour
 
 	private void MovePlayer()
 	{
-		Vector3 targetVelocity = new Vector3(m_movementInput.x, 0, m_movementInput.y) * m_movementSpeed;
-		Vector3 setVelocity = Vector3.SmoothDamp(m_rigidbody.velocity, targetVelocity, ref m_velocitySmoothing, m_accelerationTime);
-		//m_rigidbody.velocity = new Vector3(setVelocity.x, m_rigidbody.velocity.y, setVelocity.z);
+		float frameAccel = m_movementSpeed / m_accelerationTime * Time.deltaTime;
 
-		m_rigidbody.AddForce(targetVelocity, ForceMode.VelocityChange);
+		Vector3 targetHorizontalVelocity = new Vector3(m_movementInput.x, 0, m_movementInput.y) * m_movementSpeed;
+		Vector3 currentHorizontalVelocity = new Vector3(m_rigidbody.velocity.x, 0, m_rigidbody.velocity.z);
+		Vector3 newHorizontalVelocity = Vector3.MoveTowards(currentHorizontalVelocity, targetHorizontalVelocity, frameAccel);
 
-		if (m_rigidbody.velocity.magnitude > 1f)
-		{
-			m_rigidbody.velocity = m_rigidbody.velocity.normalized * 1;
-		}
-
-		
-
-		
+		m_rigidbody.velocity = new Vector3(newHorizontalVelocity.x, m_rigidbody.velocity.y, newHorizontalVelocity.z);
 	}
 
 	public void RightTrigger()
@@ -134,7 +127,7 @@ public class PlayerController : MonoBehaviour
 
         m_currentFishObject.GetComponent<ShotFish>().m_myTeam = m_playerTeam;
 
-		m_currentFishObject.velocity = Vector3.zero;
+		m_currentFishObject.velocity = m_rigidbody.velocity;
 		m_currentFishObject.AddForce(m_fishShootPosition.transform.up * m_shootForce, ForceMode.Impulse);
 
 		m_fishIsCast = true;
@@ -144,7 +137,8 @@ public class PlayerController : MonoBehaviour
 	private void ReelFish()
 	{
 		Vector3 dirToPlayer = transform.position - m_currentFishObject.position;
-		m_currentFishObject.AddForce(dirToPlayer.normalized * m_reelForce, ForceMode.Impulse);
+		float flopForce = dirToPlayer.y > -2 ? 200 : 0;
+		m_currentFishObject.AddForce(dirToPlayer.normalized * m_reelForce + Vector3.up * flopForce, ForceMode.Impulse);
 	}
 
 	private void CheckFishDistance()
