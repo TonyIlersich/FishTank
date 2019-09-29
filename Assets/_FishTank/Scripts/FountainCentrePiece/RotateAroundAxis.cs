@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class RotateAroundAxis : MonoBehaviour
 {
-    public float rotationSpeed, rotationDirection, randomNumber;
-    public bool rotateSelf, rotateAround, isRing;
-
+    public float rotationSpeed, rotationDirection, randomNumber, randomDirection;
+    public bool rotateSelf, rotateAround, isRing, rotateSelfCentre;
+    
     public Transform rotationAxis;
 
     public Vector3 randomDir;
@@ -30,6 +30,11 @@ public class RotateAroundAxis : MonoBehaviour
             SelfRotate();
         }
 
+        if (rotateSelfCentre)
+        {
+            SelfRotateCentre();
+        }
+
         if (rotateAround)
         {
             RotateAround();
@@ -44,6 +49,13 @@ public class RotateAroundAxis : MonoBehaviour
     void SelfRotate()
     {
         transform.Rotate(0, rotationDirection * rotationSpeed * Time.deltaTime, 0);
+    }
+
+    void SelfRotateCentre()
+    {
+        float value = 5f * Mathf.Cos(Time.time) * Mathf.Sin(Time.time * 0.5f);
+        Debug.Log("Value" + value);
+        transform.Rotate(0, value * rotationDirection * rotationSpeed * Time.deltaTime, 0);
     }
 
     void RotateAround()
