@@ -65,7 +65,6 @@ public class RotateAroundAxis : MonoBehaviour
         //Debug.Log("rotating");
         transform.RotateAround(rotationAxis.position, Vector3.up, rotationDirection * rotationSpeed * Time.deltaTime);
     }
-
     void RingRotate()
     {
 
