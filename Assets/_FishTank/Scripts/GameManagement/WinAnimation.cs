@@ -26,6 +26,8 @@ public class WinAnimation : MonoBehaviour
 
     public GameFinished m_gameFinishedEvent;
     public GameFinished m_winAnimComplete;
+    private float m_cameraEulerX;
+    public float m_newEuler = 15f;
 
 
     private void Start()
@@ -33,6 +35,7 @@ public class WinAnimation : MonoBehaviour
         mainCamera = Camera.main;
         m_cameraStart = mainCamera.transform.position;
         m_orthoSizeBegin = mainCamera.orthographicSize;
+        m_cameraEulerX = mainCamera.transform.eulerAngles.x;
     }
 
     public void ShowWinAnimation(Transform p_winningPlayer, Transform p_newCameraPos)
@@ -54,10 +57,8 @@ public class WinAnimation : MonoBehaviour
             mainCamera.transform.position = Vector3.Lerp(m_cameraStart, m_cameraPosition.position, percent);
             mainCamera.orthographicSize = Mathf.Lerp(m_orthoSizeBegin, m_orthoSizeTarget, percent);
 
-            Quaternion lookRotation = Quaternion.LookRotation(m_winningPlayer.position - transform.position, transform.up);
-
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, m_cameraRotateSpeed * Time.deltaTime);
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0f);
+            mainCamera.transform.eulerAngles = new Vector3(Mathf.Lerp(m_cameraEulerX, m_newEuler, percent),0,0);
+            
 
             if (!m_winningTextShown)
             {

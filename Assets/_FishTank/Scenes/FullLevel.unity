@@ -2414,6 +2414,7 @@ MonoBehaviour:
   m_winAnimComplete:
     m_PersistentCalls:
       m_Calls: []
+  m_newEuler: 15
 --- !u!4 &1214060881
 Transform:
   m_ObjectHideFlags: 0
@@ -2681,13 +2682,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1477704072}
-  m_LocalRotation: {x: 0.2165042, y: -0, z: -0, w: 0.9762817}
+  m_LocalRotation: {x: 0.52203935, y: -0, z: -0, w: 0.8529214}
   m_LocalPosition: {x: 0, y: 35, z: -18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 25.008001, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 62.938004, y: 0, z: 0}
 --- !u!1 &1513121514
 GameObject:
   m_ObjectHideFlags: 0

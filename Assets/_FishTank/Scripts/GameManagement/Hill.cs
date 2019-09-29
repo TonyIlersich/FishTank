@@ -109,6 +109,13 @@ public class Hill : MonoBehaviour
     private void WinGame()
     {
         m_gameComplete = true;
+
+        foreach (PlayerController player in m_allPlayers)
+        {
+            player.enabled = false;
+        }
+        Debug.Break();
+
         m_gameCompleteEvent.Invoke();
         if (m_winAnim!=null)
         {
