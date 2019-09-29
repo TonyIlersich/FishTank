@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour
 	public float m_recallTime;
 	private float m_recallTimer;
 
+	public float m_shootBufferTime;
+	private float m_shootBufferTimer;
+
 	[HideInInspector]
 	public Rigidbody m_rigidbody;
 	private Vector3 m_velocitySmoothing;
@@ -56,6 +59,11 @@ public class PlayerController : MonoBehaviour
 		if (m_fishIsCast)
 		{
 			CheckFishDistance();
+		}
+
+		if (!m_fishIsCast && m_shootBufferTimer < m_shootBufferTime)
+		{
+			m_shootBufferTimer += Time.deltaTime;
 		}
 	}
 
@@ -96,8 +104,15 @@ public class PlayerController : MonoBehaviour
 		}
 		else
 		{
-            m_playerEvents.m_shootEvent.Invoke();
-			ShootFish();
+			if (m_shootBufferTimer >= m_shootBufferTime)
+			{
+				m_playerEvents.m_shootEvent.Invoke();
+				ShootFish();
+
+				m_shootBufferTimer = 0;
+			}
+
+
 		}
 	}
 

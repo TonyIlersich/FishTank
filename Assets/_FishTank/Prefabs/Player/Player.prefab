@@ -2121,6 +2121,7 @@ MonoBehaviour:
   m_fishPrefab: {fileID: 1847768992504379653, guid: 85a3495fef67be84baec4a4cdfad460a,
     type: 3}
   m_recallTime: 1
+  m_shootBufferTime: 0.5
   m_rigidbody: {fileID: 0}
   m_playerEvents:
     m_shootEvent:
