@@ -93,7 +93,18 @@ public class PlayerController : MonoBehaviour
 	{
 		Vector3 targetVelocity = new Vector3(m_movementInput.x, 0, m_movementInput.y) * m_movementSpeed;
 		Vector3 setVelocity = Vector3.SmoothDamp(m_rigidbody.velocity, targetVelocity, ref m_velocitySmoothing, m_accelerationTime);
-		m_rigidbody.velocity = new Vector3(setVelocity.x, m_rigidbody.velocity.y, setVelocity.z);
+		//m_rigidbody.velocity = new Vector3(setVelocity.x, m_rigidbody.velocity.y, setVelocity.z);
+
+		m_rigidbody.AddForce(targetVelocity, ForceMode.VelocityChange);
+
+		if (m_rigidbody.velocity.magnitude > 1f)
+		{
+			m_rigidbody.velocity = m_rigidbody.velocity.normalized * 1;
+		}
+
+		
+
+		
 	}
 
 	public void RightTrigger()

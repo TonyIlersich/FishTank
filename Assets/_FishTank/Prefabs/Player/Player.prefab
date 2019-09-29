@@ -2341,7 +2341,7 @@ MonoBehaviour:
   m_accelerationTime: 0.1
   m_turret: {fileID: 7271597563476946057}
   m_reelForce: 160
-  m_shootForce: 160
+  m_shootForce: 200
   m_fishShootPosition: {fileID: 7271597563723543384}
   m_fishSnapDistance: 6
   m_fishPrefab: {fileID: 1847768992504379653, guid: 85a3495fef67be84baec4a4cdfad460a,
