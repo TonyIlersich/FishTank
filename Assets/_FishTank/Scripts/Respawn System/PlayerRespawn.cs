@@ -8,13 +8,14 @@ public class OnRespawnEvents : UnityEvent { };
 
 public class PlayerRespawn : MonoBehaviour
 {
+    public Transform m_respawnPoint;
+
     public string m_deathTag = "Death";
     public float m_respawnTime = 3f;
     public float m_respawnParticleStartTime;
     public GameObject m_visuals;
     public GameObject m_deathParticle, m_respawnParticle, m_fishParticle;
     private ObjectPooler m_pooler;
-    private RingRespawnManager m_respawnManager;
     private PlayerController m_playerController;
     private Coroutine m_respawnCoroutine;
     private Rigidbody m_rb;
@@ -32,7 +33,6 @@ public class PlayerRespawn : MonoBehaviour
     {
         m_playerController = GetComponent<PlayerController>();
         m_pooler = ObjectPooler.instance;
-        m_respawnManager = RingRespawnManager.Instance;
         m_rb = GetComponent<Rigidbody>();
     }
 
@@ -49,7 +49,7 @@ public class PlayerRespawn : MonoBehaviour
             Rigidbody rb = m_pooler.NewObject(m_fishParticle, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(new Vector3(Random.Range(-.5f, .5f), Random.Range(0, 1f), Random.Range(-.5f, .5f)) * Random.Range(2f,10f), ForceMode.Impulse);
 
-            transform.position = m_respawnManager.RespawnFishPosition(m_playerController);
+            transform.position = m_respawnPoint.position;
             m_rb.isKinematic = true;
             m_respawnCoroutine = StartCoroutine(RespawnFunction());
             print("died");

@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
+[System.Serializable]
+public class OnGearTurned : UnityEvent { }
 public class Ring : MonoBehaviour
 {
 	// these properties can be fine-tuned in the inspector
@@ -15,7 +17,13 @@ public class Ring : MonoBehaviour
 	private float startTime;
 	private float startAngle;
 
-	void Start()
+    public OnGearTurned m_gearTurned;
+
+    private void OnEnable()
+    {
+        m_gearTurned.Invoke();
+    }
+    void Start()
 	{
 		startTime = Time.time;
 		startAngle = transform.rotation.eulerAngles.y;

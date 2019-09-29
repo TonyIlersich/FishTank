@@ -5,6 +5,7 @@ using UnityEngine;
 public class Centerpiece : MonoBehaviour
 {
 	public Ring ring;
+    public string m_sceneName;
 
 	private readonly bool[] teamsReady = new bool[4] { false, false, false, false };
 	private readonly bool[] teamsInside = new bool[4] { false, false, false, false };
@@ -42,8 +43,7 @@ public class Centerpiece : MonoBehaviour
 			}
 			if (allInside)
 			{
-				print("next level!");
-				// TODO: load real level
+                UnityEngine.SceneManagement.SceneManager.LoadScene(m_sceneName);
 			}
 		}
 	}
