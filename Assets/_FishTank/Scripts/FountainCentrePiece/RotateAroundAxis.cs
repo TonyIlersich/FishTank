@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotateAroundAxis : MonoBehaviour
 {
-    public float rotationSpeed, rotationDirection, randomNumber, randomDirection;
+    public float rotationSpeed, rotationDirection, randomNumber, randomDirection, tempo;
     public bool rotateSelf, rotateAround, isRing, rotateSelfCentre;
     
     public Transform rotationAxis;
@@ -53,14 +53,16 @@ public class RotateAroundAxis : MonoBehaviour
 
     void SelfRotateCentre()
     {
-        float value = 5f * Mathf.Cos(Time.time) * Mathf.Sin(Time.time * 0.5f);
-        Debug.Log("Value" + value);
+        float apparentTime = Time.time * tempo;
+        float apparentDeltaTime = Time.deltaTime * tempo;
+        float value = 5f * Mathf.Cos(apparentTime); //* Mathf.Sin(Time.time);
+        //Debug.Log("Value" + value);
         transform.Rotate(0, value * rotationDirection * rotationSpeed * Time.deltaTime, 0);
     }
 
     void RotateAround()
     {
-        Debug.Log("rotating");
+        //Debug.Log("rotating");
         transform.RotateAround(rotationAxis.position, Vector3.up, rotationDirection * rotationSpeed * Time.deltaTime);
     }
 
@@ -83,7 +85,7 @@ public class RotateAroundAxis : MonoBehaviour
             //randomDir = Vector3.forward;
             randomDir = new Vector3(1, 1, 0);
         }
-        Debug.Log("Ring Rotating");
+        //Debug.Log("Ring Rotating");
         transform.RotateAround(rotationAxis.position, rotationSpeed * randomDir, - rotationDirection * rotationSpeed * Time.deltaTime);
     }
 }
