@@ -310,9 +310,11 @@ MonoBehaviour:
   rotationSpeed: 90
   rotationDirection: -1
   randomNumber: 0
+  randomDirection: 0
   rotateSelf: 0
   rotateAround: 0
   isRing: 0
+  rotateSelfCentre: 0
   rotationAxis: {fileID: 549404306}
   randomDir: {x: 0, y: 0, z: 0}
 --- !u!1 &859365622
@@ -586,7 +588,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1476631453
 Light:
   m_ObjectHideFlags: 0

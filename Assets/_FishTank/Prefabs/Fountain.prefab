@@ -15,9 +15,11 @@ MonoBehaviour:
   rotationSpeed: 360
   rotationDirection: 1
   randomNumber: 0
+  randomDirection: 0
   rotateSelf: 0
   rotateAround: 0
   isRing: 1
+  rotateSelfCentre: 0
   rotationAxis: {fileID: 5588558700777300481}
   randomDir: {x: 0, y: 0, z: 0}
 --- !u!114 &5588558701204207460
@@ -35,9 +37,11 @@ MonoBehaviour:
   rotationSpeed: 90
   rotationDirection: -1
   randomNumber: 0
+  randomDirection: 0
   rotateSelf: 1
   rotateAround: 1
   isRing: 0
+  rotateSelfCentre: 0
   rotationAxis: {fileID: 5588558700777300481}
   randomDir: {x: 0, y: 0, z: 0}
 --- !u!114 &5588558700639081264
@@ -55,9 +59,11 @@ MonoBehaviour:
   rotationSpeed: 360
   rotationDirection: 1
   randomNumber: 0
+  randomDirection: 0
   rotateSelf: 0
   rotateAround: 0
   isRing: 1
+  rotateSelfCentre: 0
   rotationAxis: {fileID: 5588558700777300481}
   randomDir: {x: 0, y: 0, z: 0}
 --- !u!114 &5588558700604679070
@@ -75,9 +81,11 @@ MonoBehaviour:
   rotationSpeed: 360
   rotationDirection: -1
   randomNumber: 0
+  randomDirection: 0
   rotateSelf: 0
   rotateAround: 0
   isRing: 1
+  rotateSelfCentre: 0
   rotationAxis: {fileID: 5588558700777300481}
   randomDir: {x: 0, y: 0, z: 0}
 --- !u!114 &5588558700970948950
@@ -95,9 +103,11 @@ MonoBehaviour:
   rotationSpeed: 360
   rotationDirection: -1
   randomNumber: 0
+  randomDirection: 0
   rotateSelf: 0
   rotateAround: 0
   isRing: 1
+  rotateSelfCentre: 0
   rotationAxis: {fileID: 5588558700777300481}
   randomDir: {x: 0, y: 0, z: 0}
 --- !u!114 &5588558700255966710
@@ -115,9 +125,11 @@ MonoBehaviour:
   rotationSpeed: 90
   rotationDirection: -1
   randomNumber: 0
+  randomDirection: 0
   rotateSelf: 1
   rotateAround: 1
   isRing: 0
+  rotateSelfCentre: 0
   rotationAxis: {fileID: 5588558700777300481}
   randomDir: {x: 0, y: 0, z: 0}
 --- !u!1 &5588558699509251741
@@ -160,6 +172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5588558699778100107}
+  - component: {fileID: 1861558368}
   m_Layer: 0
   m_Name: Fountain
   m_TagString: Untagged
@@ -185,6 +198,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1861558368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5588558699778100100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f6dcd32dd5ed42a29ce84ea30ef23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: -40
+  rotationDirection: 1
+  randomNumber: 0
+  randomDirection: 0
+  rotateSelf: 0
+  rotateAround: 0
+  isRing: 0
+  rotateSelfCentre: 1
+  rotationAxis: {fileID: 0}
+  randomDir: {x: 0, y: 0, z: 0}
 --- !u!1 &5588558700777300509
 GameObject:
   m_ObjectHideFlags: 0
