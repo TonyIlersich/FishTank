@@ -57,21 +57,21 @@ public class RotateAroundAxis : MonoBehaviour
 
         if (randomNumber == 0)
         {
-            randomDir = new Vector3 (0,12,13);
+            randomDir = new Vector3 (0,1,1);
         }
 
         if (randomNumber == 1)
         {
             //randomDir = Vector3.right;
-            randomDir = new Vector3(12, 0, 16);
+            randomDir = new Vector3(1, 0, 1);
         }
 
         if (randomNumber == 2)
         {
             //randomDir = Vector3.forward;
-            randomDir = new Vector3(13, 13, 26);
+            randomDir = new Vector3(1, 1, 0);
         }
         Debug.Log("Ring Rotating");
-        transform.RotateAround(rotationAxis.position, randomDir, - rotationDirection * rotationSpeed * Time.deltaTime);
+        transform.RotateAround(rotationAxis.position, rotationSpeed * randomDir, - rotationDirection * rotationSpeed * Time.deltaTime);
     }
 }
