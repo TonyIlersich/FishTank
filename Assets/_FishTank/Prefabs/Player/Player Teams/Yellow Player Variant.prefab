@@ -10,7 +10,7 @@ Animator:
   m_GameObject: {fileID: 3868119736845369184}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5579c72974e078e4eb4a7974b9060de9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -152,39 +152,39 @@ PrefabInstance:
       propertyPath: m_Parameters.colorGradient.key1.b
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1376643050316701264, guid: b607151d235b1a34dbda5f6fa29d20ee,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.92892253
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376643050316701264, guid: b607151d235b1a34dbda5f6fa29d20ee,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376643050316701264, guid: b607151d235b1a34dbda5f6fa29d20ee,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012443123843163412, guid: b607151d235b1a34dbda5f6fa29d20ee,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.92892253
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012443123843163412, guid: b607151d235b1a34dbda5f6fa29d20ee,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012443123843163412, guid: b607151d235b1a34dbda5f6fa29d20ee,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 1060123664, guid: b607151d235b1a34dbda5f6fa29d20ee, type: 3}
       propertyPath: m_Intensity
       value: 0.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 1376643050316701264, guid: b607151d235b1a34dbda5f6fa29d20ee,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.92892253
-      objectReference: {fileID: 0}
-    - target: {fileID: 1376643050316701264, guid: b607151d235b1a34dbda5f6fa29d20ee,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1376643050316701264, guid: b607151d235b1a34dbda5f6fa29d20ee,
-        type: 3}
-      propertyPath: m_Intensity
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 3012443123843163412, guid: b607151d235b1a34dbda5f6fa29d20ee,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.92892253
-      objectReference: {fileID: 0}
-    - target: {fileID: 3012443123843163412, guid: b607151d235b1a34dbda5f6fa29d20ee,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3012443123843163412, guid: b607151d235b1a34dbda5f6fa29d20ee,
-        type: 3}
-      propertyPath: m_Intensity
-      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 3746535085466843200, guid: b607151d235b1a34dbda5f6fa29d20ee,
         type: 3}
