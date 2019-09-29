@@ -452,6 +452,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2732824518445158986}
+  - {fileID: 6575983422605978766}
   m_Father: {fileID: 5309419846481977949}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 34.901, y: 0, z: 0}
@@ -1909,6 +1910,41 @@ Transform:
   m_Father: {fileID: 5069721402315766028}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7581632079349608943
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6575983422605978766}
+  m_Layer: 5
+  m_Name: Camera Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6575983422605978766
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7581632079349608943}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1.17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1883217623202203425}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -4.27}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7961281014106758591
 GameObject:
   m_ObjectHideFlags: 0
@@ -2461,6 +2497,7 @@ MonoBehaviour:
   m_team: 0
   m_currentAmount: 0
   m_bar: {fileID: 2046125057817194146}
+  m_winningCameraPos: {fileID: 6575983422605978766}
 --- !u!95 &4558440881365241072
 Animator:
   serializedVersion: 3

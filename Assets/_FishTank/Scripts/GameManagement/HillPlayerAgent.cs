@@ -9,7 +9,7 @@ public class HillPlayerAgent : MonoBehaviour
     public float m_currentAmount;
 
     public UnityEngine.UI.Image m_bar;
-
+    public Transform m_winningCameraPos;
     
     
     public void ChangeScore(float p_changeAmount)

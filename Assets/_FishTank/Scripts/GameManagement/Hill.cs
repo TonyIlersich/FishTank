@@ -18,7 +18,7 @@ public class Hill : MonoBehaviour
 
     public HillPlayerAgent[] m_playersBars = new HillPlayerAgent[4];
 
-    private bool m_gameComplete = false;
+    
 
     public GameComplete m_gameCompleteEvent;
 
@@ -27,6 +27,9 @@ public class Hill : MonoBehaviour
 
     public float m_hillRadius;
 
+    public WinAnimation m_winAnim;
+    private bool m_gameComplete = false;
+    private HillPlayerAgent m_winningPlayer;
     private void Update()
     {
         ShowPlayerBars();   
@@ -74,6 +77,7 @@ public class Hill : MonoBehaviour
                     currentPlayerStats.ChangeScore(m_hillIncreaseRPS* m_hillCheckRate);
                     if (currentPlayerStats.m_currentAmount >= m_maxBarAmount)
                     {
+                        m_winningPlayer = currentPlayerStats;
                         WinGame();
                     }
                 }
@@ -106,6 +110,10 @@ public class Hill : MonoBehaviour
     {
         m_gameComplete = true;
         m_gameCompleteEvent.Invoke();
+        if (m_winAnim!=null)
+        {
+            m_winAnim.ShowWinAnimation(m_winningPlayer.transform, m_winningPlayer.m_winningCameraPos);
+        }
     }
 
     private void ShowPlayerBars()
